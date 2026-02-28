@@ -1,86 +1,96 @@
 import React, { useState } from 'react';
-import { MoreHorizontal, Calendar, CheckCircle2, HelpCircle, ChevronRight, ChevronDown, Zap, ArrowLeft, Check } from 'lucide-react';
+import { MoreHorizontal, Plus, Link as LinkIcon, DownloadCloud, ChevronRight, X } from 'lucide-react';
 import SettingsModal from '../components/SettingsModal';
 
 const Home = () => {
-    const [files, setFiles] = useState([]);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     return (
-        <div className="relative min-h-screen w-full font-sans text-gray-900 overflow-hidden bg-gray-100 selection:bg-blue-200 pt-16">
-            {/* Background Image Placeholder */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=2000&auto=format&fit=crop"
-                    alt="Beautiful abstract or landscape background"
-                    className="object-cover w-full h-full"
-                />
-                <div className="absolute inset-0 bg-black/10"></div>
-            </div>
+        <div className="relative min-h-screen w-full font-sans text-gray-900 overflow-hidden bg-gradient-to-br from-[#f0f4f9] to-[#d6e4f9] pt-[85px] lg:pt-[90px]">
+            {/* Abstract floating shapes for premium vibe */}
+            <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-400 opacity-20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-indigo-500 opacity-15 rounded-full blur-[80px] pointer-events-none"></div>
 
             {/* Main Container - Left Aligned */}
-            <main className="relative z-10 flex items-center h-full px-6 md:px-12 lg:px-24 pointer-events-none pb-20">
-                {/* White Transfer Card - Narrower and Left Side */}
-                <div className={`w-[360px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.15)] p-4 flex flex-col pointer-events-auto mt-8 md:mt-12 relative z-10 transition-all duration-500 ${isSettingsOpen ? 'rounded-l-[24px] rounded-r-none' : 'rounded-[24px]'}`}>
+            <main className="relative z-10 flex items-center h-[calc(100vh-90px)] px-6 md:px-12 lg:px-24 pointer-events-none pb-20 md:pb-0">
+
+                {/* Visual Content (Right side on desktop) */}
+                <div className="absolute right-24 pointer-events-none hidden lg:flex flex-col items-end gap-6 z-0 max-w-xl">
+                    <h1 className="text-6xl font-black tracking-tight text-[#1e2a6a] text-right leading-[1.1]">
+                        Send large files with <br /> absolute <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-500">simplicity</span>.
+                    </h1>
+                    <p className="text-lg font-medium text-gray-600 text-right max-w-sm">
+                        Fast, secure and beautifully designed. Share your heaviest projects without breaking a sweat.
+                    </p>
+                </div>
+
+                {/* White Transfer Card - Premium aesthetic */}
+                <div className={`w-[380px] bg-white/90 backdrop-blur-xl border border-white shadow-[0_40px_80px_rgba(43,58,140,0.15)] p-5 md:p-6 flex flex-col pointer-events-auto relative z-20 transition-all duration-500 ring-1 ring-black/5 ${isSettingsOpen ? 'rounded-l-[32px] rounded-r-none' : 'rounded-[32px]'}`}>
 
                     {/* Settings Modal (Slides out to the right) */}
                     <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 
-                    {/* Top Action Pills */}
+                    {/* Top Action Header */}
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-gray-100">
+                        <h2 className="text-[18px] font-bold text-[#1e2a6a] flex items-center gap-2">
+                            <DownloadCloud className="w-5 h-5 text-blue-500" />
+                            Transfer files
+                        </h2>
+                    </div>
+
+                    {/* Upload Types */}
                     <div className="flex gap-3 mb-4">
-                        <button className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-white rounded-[14px] text-[13px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm">
-                            <svg className="w-4 h-4 text-[#75a9f9]" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" /></svg>
-                            Add Files
+                        <button className="cursor-pointer flex-1 flex items-center justify-center gap-2 py-2 bg-blue-50/50 rounded-xl text-[13px] font-bold text-blue-700 hover:bg-blue-100 transition-colors border border-blue-100/50 shadow-sm">
+                            <Plus className="w-4 h-4 " />
+                            Files
                         </button>
-                        <button className="flex-1 flex items-center justify-center gap-2 py-2.5 bg-white rounded-[14px] text-[13px] font-semibold text-gray-700 hover:bg-gray-50 transition-colors border border-gray-100 shadow-sm">
-                            <svg className="w-4 h-4 text-[#75a9f9]" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" /></svg>
-                            Add Folders
+                        <button className="cursor-pointer flex-1 flex items-center justify-center gap-2 py-2 bg-blue-50/50 rounded-xl text-[13px] font-bold text-blue-700 hover:bg-blue-100 transition-colors border border-blue-100/50 shadow-sm">
+                            <Plus className="w-4 h-4" />
+                            Folders
                         </button>
                     </div>
 
                     {/* Drag and Drop Area */}
-                    <div className="border border-dashed border-gray-200 rounded-[20px] py-10 flex flex-col items-center justify-center text-center mb-4 bg-gray-50/20">
-                        <div className="w-14 h-14 bg-[#f2f3f5] rounded-full flex items-center justify-center mb-4">
-                            <svg className="w-7 h-7 text-[#bbbec4]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.36 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" /></svg>
+                    <div className="group border-2 border-dashed border-blue-200/60 rounded-[24px] py-6 flex flex-col items-center justify-center text-center mb-5 bg-[#f8fbff] hover:bg-blue-50/50 hover:border-blue-400 transition-all cursor-pointer">
+                        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-3 shadow-[0_8px_16px_rgba(0,0,0,0.06)] group-hover:scale-110 transition-transform">
+                            <DownloadCloud className="w-5 h-5 text-blue-600" />
                         </div>
-                        <span className="text-[12.5px] font-bold text-gray-700 mb-1">Choose a file or drag & drop it here.</span>
-                        <span className="text-[11.5px] text-gray-400 font-medium mb-4">Max size: 50GB per file or folder</span>
-                        <button className="py-2 px-5 bg-white border border-gray-100 rounded-xl text-[12px] font-bold text-gray-600 hover:bg-gray-50 transition-colors shadow-sm">
-                            Browse files
-                        </button>
+                        <span className="text-[14px] font-bold text-gray-800 mb-0.5">Upload files or folders</span>
+                        <span className="text-[12px] text-gray-500 font-medium px-4">Drag and drop up to 50 GB.</span>
                     </div>
 
-                    {/* Email Inputs */}
-                    <div className="flex gap-3 mb-3">
-                        <div className="flex-1 flex items-center bg-[#f7f7f9] rounded-[14px] px-3.5 py-3">
-                            <svg className="w-4 h-4 text-gray-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" /></svg>
-                            <input type="email" placeholder="Send to" className="w-full bg-transparent outline-none text-[13px] text-gray-700 placeholder-gray-400 font-medium" />
+                    {/* Forms */}
+                    <div className="flex flex-col gap-2.5 mb-5">
+                        <div className="flex flex-col space-y-2.5">
+                            <div className="relative flex items-center bg-gray-50/80 border border-gray-100 rounded-xl px-4 py-2.5 focus-within:bg-white focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 transition-all">
+                                <input type="email" placeholder="Email to" className="w-full bg-transparent outline-none text-[13px] text-gray-800 placeholder-gray-400 font-semibold" />
+                            </div>
+                            <div className="relative flex items-center bg-gray-50/80 border border-gray-100 rounded-xl px-4 py-2.5 focus-within:bg-white focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 transition-all">
+                                <input type="email" placeholder="Your email" className="w-full bg-transparent outline-none text-[13px] text-gray-800 placeholder-gray-400 font-semibold" />
+                            </div>
                         </div>
-                        <div className="flex-1 flex items-center bg-[#f7f7f9] rounded-[14px] px-3.5 py-3">
-                            <svg className="w-4 h-4 text-gray-500 mr-2 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                            <input type="email" placeholder="Your email" className="w-full bg-transparent outline-none text-[13px] text-gray-700 placeholder-gray-400 font-medium" />
+
+                        {/* Title / Message */}
+                        <div className="relative flex items-center bg-gray-50/80 border border-gray-100 rounded-xl px-4 py-2.5 focus-within:bg-white focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 transition-all mt-0.5">
+                            <input type="text" placeholder="Title" className="w-full bg-transparent outline-none text-[13px] text-gray-800 placeholder-gray-400 font-semibold" />
+                        </div>
+
+                        <div className="relative flex items-start bg-gray-50/80 border border-gray-100 rounded-xl px-4 py-2.5 focus-within:bg-white focus-within:border-blue-400 focus-within:ring-4 focus-within:ring-blue-100 transition-all">
+                            <textarea placeholder="Message" className="w-full bg-transparent outline-none text-[13px] text-gray-800 placeholder-gray-400 font-medium resize-none h-[52px]" />
                         </div>
                     </div>
 
-                    {/* Message Input */}
-                    <div className="bg-[#f7f7f9] rounded-[14px] px-4 py-3.5 mb-5 h-[100px] flex flex-col relative group">
-                        <div className="flex justify-between items-start w-full">
-                            <textarea placeholder="Message" className="w-full bg-transparent outline-none text-[13px] text-gray-700 placeholder-gray-400 font-medium resize-none h-[60px]" />
-
-                        </div>
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="flex items-center">
-                        <button className="w-full cursor-pointer bg-[#243588] hover:bg-[#202b6a] text-white rounded-[16px] py-[15px] font-bold text-[14.5px] flex items-center justify-center gap-2.5 transition-all shadow-md">
-                            <svg className="w-3 h-3 text-white transform -rotate-45 mb-1" fill="currentColor" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" /></svg>
-                            Start Transfer
-                        </button>
+                    {/* Submit Button Area */}
+                    <div className="flex items-center gap-3 mt-auto">
                         <button
-                            className="w-[55px] cursor-pointer h-[55px] ml-3 bg-[#243588] rounded-full flex items-center justify-center shrink-0 border-[3.5px] border-[#d8e8f8] shadow-sm hover:scale-105 transition-transform"
+                            className={`cursor-pointer w-12 h-12 shrink-0 rounded-[14px] flex items-center justify-center transition-all ${isSettingsOpen ? 'bg-blue-100 text-blue-700' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                             onClick={() => setIsSettingsOpen(prev => !prev)}
                         >
-                            <MoreHorizontal className="w-6 h-6 text-white" strokeWidth={3} />
+                            {isSettingsOpen ? <X className="w-5 h-5" /> : <MoreHorizontal className="w-5 h-5" />}
+                        </button>
+
+                        <button className="cursor-pointer flex-1 bg-[#2b3a8c] hover:bg-[#1e2a6a] text-white rounded-[14px] h-12 font-bold text-[14px] flex items-center justify-center gap-2 transition-all shadow-md shadow-[#2b3a8c]/20 hover:-translate-y-0.5">
+                            Transfer
                         </button>
                     </div>
                 </div>

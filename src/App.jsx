@@ -5,6 +5,7 @@ import Home from './features/home/pages/home';
 import Login from './features/auth/pages/login';
 import Register from './features/auth/pages/register';
 
+// Account Pages
 import Account from './features/myAccount/pages/account';
 import UploadsTab from './features/myAccount/components/UploadsTab';
 import ReceivedFilesTab from './features/myAccount/components/ReceivedFilesTab';
@@ -12,6 +13,11 @@ import BackgroundsTab from './features/myAccount/components/BackgroundsTab';
 import SubUsersTab from './features/myAccount/components/SubUsersTab';
 import PasswordTab from './features/myAccount/components/PasswordTab';
 import SettingsTab from './features/myAccount/components/SettingsTab';
+
+// Info Pages
+import Terms from './features/info/pages/Terms';
+import About from './features/info/pages/About';
+import Contact from './features/info/pages/Contact';
 
 function App() {
   return (
@@ -31,6 +37,11 @@ function App() {
           <Route path="password" element={<PasswordTab />} />
           <Route path="settings" element={<SettingsTab />} />
         </Route>
+
+        {/* Info Pages Routes */}
+        <Route path="/about" element={<About />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
